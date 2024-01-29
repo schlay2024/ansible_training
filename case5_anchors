@@ -9,5 +9,5 @@ env:
       port: 5432
   - api_vm:
       setting2: *default
-	  host2: api.example.com
-	  port2:80
+      host2: api.example.com
+      port2:80
