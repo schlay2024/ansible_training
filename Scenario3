@@ -1,0 +1,15 @@
+---
+environments:
+  - development:
+      db connection:
+        host_name: "dev-db.example.com"
+        port: 3306
+      api_key: "abc123"
+	
+  - production:
+      db_connection:
+	    host_name: "prod-db.example.com"
+		port: 5432
+	  api_key: "xyz789?
+
+   
