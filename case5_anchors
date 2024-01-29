@@ -1,0 +1,13 @@
+---
+default: &default
+  timeout: 30
+  retries: 180
+env:  
+  - db_vm:
+      <<: *default
+      host" dev-db.example
+      port: 5432
+  - api_vm:
+      setting2: *default
+	  host2: api.example.com
+	  port2:80
