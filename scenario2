@@ -1,0 +1,13 @@
+people:
+  - name: John Doe
+    age: 35
+    address:
+      street: 123 Main Street
+      city: Bangalore
+      zip_code: 560001
+  - name: Jane Smith
+    age: 28
+    address:
+      street: 456 Elm Street
+      city: Bangalore
+      zip_code: 560001
