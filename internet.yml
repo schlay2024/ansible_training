@@ -6,13 +6,15 @@
   tasks:
     - name: Install httpd package
       package:
+        yum:
         name: httpd
-        state: present
+        state: latest
 
     - name: Install firewalld package
       package:
+        yum:
         name: firewalld
-        state: present
+        state: latest
 
     - name: Enable and start httpd service
       service:
