@@ -1,0 +1,51 @@
+---
+- name: Configure Intranet Server
+  hosts: chris-node1
+  become: yes  
+
+  tasks:
+    - name: Install httpd package
+      package:
+        name: httpd
+        state: present
+
+    - name: Install firewalld package
+      package:
+        name: firewalld
+        state: present
+
+    - name: Enable and start httpd service
+      service:
+        name: httpd
+        state: started
+        enabled: yes
+
+    - name: Enable and start firewalld service
+      service:
+        name: firewalld
+        state: started
+        enabled: yes
+
+    - name: Write custom content to index.html
+      copy:
+        content: "Welcome to my Intranet Server"
+        dest: /var/www/html/index.html
+      notify: Restart httpd service
+
+    - name: Add exception in firewall for web service
+      firewalld:
+        service: http
+        permanent: yes
+        state: enabled
+      notify: Restart firewalld service
+
+  handlers:
+    - name: Restart httpd service
+      service:
+        name: httpd
+        state: restarted
+
+    - name: Restart firewalld service
+      service:
+        name: firewalld
+        state: restarted
